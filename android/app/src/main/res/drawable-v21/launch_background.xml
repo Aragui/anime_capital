@@ -7,6 +7,6 @@
      <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/AniCap_Logo" />
+            android:src="@mipmap/anicap_logo_hw" />
     </item>
 </layer-list>

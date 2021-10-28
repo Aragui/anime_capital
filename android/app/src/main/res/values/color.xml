@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="splash">#F0A9B5</color>
+    <color name="halloween">#42275E</color>
 
 </resources>

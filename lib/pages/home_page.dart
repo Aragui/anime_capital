@@ -1,4 +1,5 @@
 import 'package:anime_capital/bloc/home_bloc.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             DrawerHeader(
               child:
-                  Container(child: Image.asset('assets/logos/AniCap_Logo.png'),
+                  Container(child: Image.asset('assets/logos/anicap_logo.png'),
                   width: double.infinity,),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
@@ -51,7 +52,13 @@ class _HomePageState extends State<HomePage> {
                   child: ListTile(
                     leading: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                      child: Image.network(data[idx]["image"], width: 100, height: 100,fit: BoxFit.fill,),
+                      child: CachedNetworkImage(
+                        imageUrl: data[idx]["image"],
+                        height: 80,
+                        width: 80,
+                        fit: BoxFit.fill,       
+                      ),
+                      // child: Image.network(data[idx]["image"], width: 100, height: 100,fit: BoxFit.fill,),
                     ),
                     title: Text(data[idx]["name"], style: Theme.of(context).textTheme.headline6,overflow: TextOverflow.clip,),
                   ),
