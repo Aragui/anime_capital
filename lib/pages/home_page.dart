@@ -2,6 +2,9 @@ import 'package:anime_capital/bloc/home_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+
 
 
 class HomePage extends StatefulWidget {
@@ -68,9 +71,17 @@ class _HomePageState extends State<HomePage> {
                         return AlertDialog(
                           backgroundColor: Colors.black,
                           title: Text(data[idx]["name"]),
-                          content: Text(data[idx]["url"],style: Theme.of(context).textTheme.headline6,overflow: TextOverflow.clip,),
+                          content: Text("https://tioanime.com/"+data[idx]["url"],style: Theme.of(context).textTheme.headline6,overflow: TextOverflow.clip,),
                           actions: <Widget>[
-                            webView()
+                            MaterialButton(
+                                  onPressed: () async =>{
+                                    if (await canLaunch(url)) {
+                                      await launch(url);
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                  child: Text('Ver ahora',style: Theme.of(context).textTheme.headline6,overflow: TextOverflow.clip,)),           
                           ],
                         );
                       })                   
