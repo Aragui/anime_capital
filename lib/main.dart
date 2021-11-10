@@ -5,6 +5,8 @@ import 'package:anime_capital/pages/providers_page.dart';
 import 'package:anime_capital/tools/shared_preference.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/web_view.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -29,6 +31,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         "/": (_) => ProvidersPage(),
         "/last-emited": (_) => HomePage(),
+        "/webview": (_) => WebViewPage()
       },
       theme: ThemeData(
         primaryColor: Color(0xFF563A10),
