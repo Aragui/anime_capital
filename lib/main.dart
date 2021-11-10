@@ -1,11 +1,25 @@
 import 'dart:ui';
 
 import 'package:anime_capital/pages/home_page.dart';
+import 'package:anime_capital/pages/providers_page.dart';
+import 'package:anime_capital/tools/shared_preference.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  
+  @override
+  void initState() {
+    super.initState();
+    SharedPreference.initPrefs();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,13 +27,13 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
       routes: {
-        "/": (_) => HomePage(),
+        "/": (_) => ProvidersPage(),
+        "/last-emited": (_) => HomePage(),
       },
-      darkTheme: ThemeData(
-        accentColor: Colors.white,
-        primaryColor: Color(0xFFF0A9B5),
-        secondaryHeaderColor: Color(0xFFE3687E),
-        scaffoldBackgroundColor: Color(0xFF49382A),
+      theme: ThemeData(
+        primaryColor: Color(0xFF563A10),
+        secondaryHeaderColor: Color(0xFFFFA6A6),
+        scaffoldBackgroundColor: Color(0xFFFDEDAD),
         iconTheme: IconThemeData(color: Colors.white),
         textTheme: TextTheme(
           headline6: TextStyle(
@@ -31,14 +45,13 @@ class MyApp extends StatelessWidget {
                 letterSpacing: 3,
                 shadows: [
                   Shadow(color: Colors.white, blurRadius: 3, offset: Offset(-1, -1)),
-                  Shadow(color: Colors.red, blurRadius: 5, offset: Offset(3, 3)),
+                  Shadow(color: Color(0xFFFFA6A6) /*Color(0xFFFDEDAD)*/, blurRadius: 5, offset: Offset(3, 3)),
                 ],
                 fontWeight: FontWeight.bold,
                 color: Colors.white)),
         fontFamily: 'Osaka-Sans Serif',
         // brightness: Brightness.dark
       ),
-      themeMode: ThemeMode.dark,
     );
   }
 }
