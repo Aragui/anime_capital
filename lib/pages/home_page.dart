@@ -1,6 +1,8 @@
 import 'package:anime_capital/bloc/home_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -61,6 +63,18 @@ class _HomePageState extends State<HomePage> {
                       // child: Image.network(data[idx]["image"], width: 100, height: 100,fit: BoxFit.fill,),
                     ),
                     title: Text(data[idx]["name"], style: Theme.of(context).textTheme.headline6,overflow: TextOverflow.clip,),
+                    onTap: ()=>{
+                      showDialog(context: context, builder: (context){
+                        return AlertDialog(
+                          backgroundColor: Colors.black,
+                          title: Text(data[idx]["name"]),
+                          content: Text(data[idx]["url"],style: Theme.of(context).textTheme.headline6,overflow: TextOverflow.clip,),
+                          actions: <Widget>[
+                            webView()
+                          ],
+                        );
+                      })                   
+                    },
                   ),
                 );
               },
