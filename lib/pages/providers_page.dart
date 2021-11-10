@@ -44,10 +44,10 @@ class _ProvidersPageState extends State<ProvidersPage> {
                                   icon: provider["icon"],
                                   providerKey: provider["key"],
                                   onTap: () {
-                                    if(provider["enabled"]){
+                                    // if(provider["enabled"]){
                                       _prefs.setProvider = provider["key"];
                                       Navigator.of(context).pushReplacementNamed('/last-emited');
-                                    }
+                                    // }
                                   },
                                 ))
                             .toList(),
