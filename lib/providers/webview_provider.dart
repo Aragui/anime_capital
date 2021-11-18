@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:anime_capital/tools/shared_preference.dart';
 import 'package:http/http.dart' as http;
 import 'package:anime_capital/tools/headers.dart' as headers;
 

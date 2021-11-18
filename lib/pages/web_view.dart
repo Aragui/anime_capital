@@ -36,7 +36,7 @@ class WebViewPageState extends State<WebViewPage> {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
   final url=args["uri"];
-  final title=args["title"];
+  // final title=args["title"];
    print(args);
     return Scaffold(
         
