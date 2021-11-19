@@ -20,10 +20,10 @@ class SharedPreference{
   }
 
   String? get provider{
-    return _prefs!.getString('provider');
+    return _prefs?.getString('provider');
   }
 
   set setProvider(String provider){
-    _prefs!.setString('provider', provider);
+    _prefs?.setString('provider', provider);
   }
 }

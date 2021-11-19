@@ -20,16 +20,18 @@ class WebViewPageState extends State<WebViewPage> {
     super.initState();
     // Enable hybrid composition.
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+    // Future.delayed(Duration(seconds: 1)).then((value) => SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack, overlays: [SystemUiOverlay.bottom]));
   }
 
   @override
   void dispose() {
     
     super.dispose();
-    SystemChrome.setEnabledSystemUIOverlays([
-      SystemUiOverlay.top, SystemUiOverlay.bottom
-    ]);
+    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+    // SystemChrome.setEnabledSystemUIOverlays([
+    //   SystemUiOverlay.top, SystemUiOverlay.bottom
+    // ]);
+    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.);
   }
 
   @override
