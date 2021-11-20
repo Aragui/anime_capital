@@ -24,21 +24,6 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         iconTheme: Theme.of(context).iconTheme,
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              child: Container(
-                child: Image.asset('assets/logos/anicap_logo.png'),
-                width: double.infinity,
-              ),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-          ],
-        ),
-      ),
       body: StreamBuilder(
         stream: hombeBloc.lastEmittedStream,
         builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
@@ -67,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                       style: Theme.of(context).textTheme.headline6,
                       overflow: TextOverflow.clip,
                     ),
-                    onTap: (){
+                    onTap: () {
                       final webviewBloc = WebviewBloc();
 
                       // _onRechargePressed(data[idx]["name"], servers)
@@ -84,11 +69,18 @@ class _HomePageState extends State<HomePage> {
                                   if (episode.hasData) {
                                     final episodes = episode.data!;
                                     return AlertDialog(
-                                      backgroundColor: Colors.black,
-                                      title: Text(data[idx]["name"]),
+                                      backgroundColor: Theme.of(context)
+                                          .scaffoldBackgroundColor,
+                                      title: Text(
+                                        "Selecciona un servidor",
+                                        textAlign: TextAlign.center,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .subtitle1,
+                                      ),
                                       content: Container(
                                         width: 300,
-                                        height: 300,
+                                        height: 200,
                                         child: ListView.builder(
                                           shrinkWrap: true,
                                           itemCount: episodes.length,
@@ -96,19 +88,25 @@ class _HomePageState extends State<HomePage> {
                                               (BuildContext context, int idx) {
                                             return GestureDetector(
                                               onTap: () {
+                                                Navigator.of(context).pop();
                                                 final cap = {
                                                   "uri": episodes[idx]["url"],
-                                                  "title": episodes[idx]["server"]
+                                                  "title": episodes[idx]
+                                                      ["server"]
                                                 };
 
                                                 Navigator.of(context).pushNamed(
                                                     '/webview',
                                                     arguments: cap);
                                               },
-                                              child:
-                                                  Text(episodes[idx]["server"], style: Theme.of(context).textTheme.headline6,),
+                                              child: Text(
+                                                "${episodes[idx]["server"]}\n",
+                                                textAlign: TextAlign.center,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .headline6,
+                                              ),
                                             );
-                                            
                                           },
                                         ),
                                       ),
