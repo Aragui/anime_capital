@@ -1,5 +1,6 @@
 import 'package:anime_capital/bloc/home_bloc.dart';
 import 'package:anime_capital/tools/shared_preference.dart';
+import 'package:anime_capital/widgets/custom_appbar.dart';
 import 'package:anime_capital/widgets/provider_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -28,31 +29,18 @@ class _ProvidersPageState extends State<ProvidersPage> {
             return CustomScrollView(
               physics: BouncingScrollPhysics(),
               slivers: [
-                SliverSafeArea(
-                  sliver: SliverAppBar(
-                    collapsedHeight: 80,
-                    title: Text(
-                      "Proveedores",
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                    centerTitle: true,
-                    // flexibleSpace: Column(
-                    //   mainAxisAlignment: MainAxisAlignment.end,
-                    //   children: [
-                    //     Image.asset('assets/logos/anicap_logo.png', width: 300, height: 250,),
-                    //   ],
-                    // ),
-                    // expandedHeight: 300,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(50),
-                      bottomRight: Radius.circular(50),
-                    )),
-                  ),
-                ),
+                CustomAppbar(title: "Proveedores"),
                 (ConnectionState.waiting == snapshot.connectionState)
-                ? SliverToBoxAdapter(child: Container(height: size.height * 0.7, alignment: Alignment.center, child: CircularProgressIndicator(color: Theme.of(context).primaryColor,),),)
-                : SliverToBoxAdapter(),
+                    ? SliverToBoxAdapter(
+                        child: Container(
+                          height: size.height * 0.7,
+                          alignment: Alignment.center,
+                          child: CircularProgressIndicator(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      )
+                    : SliverToBoxAdapter(),
                 (snapshot.hasData)
                     ? SliverPadding(
                         padding:

@@ -47,8 +47,8 @@ class ProviderTile extends StatelessWidget {
           Container(
             height: 80,
             decoration: BoxDecoration(
-              color: Theme.of(context).secondaryHeaderColor,
-              border: Border.all(color: Color(0xFF), width: 2),
+              color: Color(0xFF1B233D),
+              // border: Border.all(color: Color(0xFF1B233D), width: 2, style: BorderStyle.solid),
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
             child: CachedNetworkImage(

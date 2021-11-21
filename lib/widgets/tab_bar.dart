@@ -1,7 +1,6 @@
 import 'package:anime_capital/pages/coming_series_page.dart';
-import 'package:anime_capital/pages/home_page_old.dart';
+import 'package:anime_capital/pages/home_page.dart';
 import 'package:anime_capital/pages/providers_page.dart';
-import 'package:anime_capital/providers/test.dart';
 import 'package:anime_capital/tools/shared_preference.dart';
 import 'package:flutter/material.dart';
 

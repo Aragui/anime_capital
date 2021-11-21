@@ -1,3 +1,5 @@
+import 'package:anime_capital/widgets/anime_card.dart';
+import 'package:anime_capital/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:anime_capital/bloc/coming_series_bloc.dart';
 
@@ -23,21 +25,7 @@ class _ComingSeriesPageState extends State<ComingSeriesPage> {
             return CustomScrollView(
               physics: BouncingScrollPhysics(),
               slivers: [
-                SliverSafeArea(
-                  sliver: SliverAppBar(
-                    collapsedHeight: 80,
-                    title: Text(
-                      "Próximamente",
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                    centerTitle: true,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(50),
-                      bottomRight: Radius.circular(50),
-                    )),
-                  ),
-                ),
+                CustomAppbar(title: "Próximamente"),
                 (ConnectionState.waiting == snapshot.connectionState)
                     ? SliverToBoxAdapter(
                         child: Container(
@@ -49,16 +37,30 @@ class _ComingSeriesPageState extends State<ComingSeriesPage> {
                         ),
                       )
                     : SliverToBoxAdapter(),
+                // (snapshot.hasData)
+                //     ? SliverPadding(
+                //         padding:
+                //             EdgeInsets.symmetric(vertical: size.height * 0.03),
+                //         sliver: SliverList(
+                //           delegate: SliverChildBuilderDelegate((context, idx) {
+                //             return Text(data![idx]["title"], style: TextStyle(color: Colors.white),);
+
+                //           }, childCount: data!.length),
+                //         ),
+                //       )
+                //     : SliverToBoxAdapter()
                 (snapshot.hasData)
-                    ? SliverPadding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: size.height * 0.15),
-                        sliver: SliverList(
-                          delegate: SliverChildBuilderDelegate((context, idx) {
-                            return Text(data![idx]["title"]);
-                            
-                          }, childCount: data!.length),
-                        ),
+                    ? SliverGrid.count(
+                        crossAxisCount: 1,
+                        children: data!
+                            .map((e) => AnimeCard(
+                                  imageUrl: e["image_url"],
+                                  title: e["title"],
+                                  type: e["type"],
+                                  genre: (e["genres"].length > 0) ? e["genres"][0]["name"] : "unknown",
+                                  producer: (e["producers"].length >0)? e["producers"][0]["name"] : "unknown"
+                                ))
+                            .toList(),
                       )
                     : SliverToBoxAdapter()
               ],

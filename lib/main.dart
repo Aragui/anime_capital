@@ -70,18 +70,13 @@ class _MyAppState extends State<MyApp> {
                   color: Colors.white, letterSpacing: 1, fontSize: 17),
               headline4: TextStyle(
                   letterSpacing: 5,
-                  // shadows: [
-                  //   Shadow(
-                  //       color: Colors.white,
-                  //       blurRadius: 3,
-                  //       offset: Offset(-1, -1)),
-                  //   Shadow(
-                  //       color: Color(0xFFFFA6A6) /*Color(0xFFFDEDAD)*/,
-                  //       blurRadius: 5,
-                  //       offset: Offset(3, 3)),
-                  // ],
                   fontWeight: FontWeight.bold,
-                  color: Colors.white)),
+                  color: Colors.white),
+              headline5: TextStyle(
+                color: Colors.white,
+                letterSpacing: 1,
+                fontSize: 22
+              )),
           fontFamily: 'Osaka-Sans Serif',
           tabBarTheme: TabBarTheme(
               indicator: BoxDecoration(
