@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 
 class HomeProvider{
   final _prefs = SharedPreference.instance;
+  // final url = 'https://anime-capital-api.azurewebsites.net/api/anime';
   final url = 'https://anime-capital-server.herokuapp.com/api/anime';
   // final url = 'http://192.168.0.28:3000/api/anime';
 

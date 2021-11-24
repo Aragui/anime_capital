@@ -31,6 +31,7 @@ class ProviderTile extends StatelessWidget {
               ),
               child: Text(
                 "Próximamente",
+                style: TextStyle(color: Colors.black, letterSpacing: 0),
               ),
             ),
           ));

@@ -59,23 +59,30 @@ class _ProvidersPageState extends State<ProvidersPage> {
                                       context: context,
                                       builder: (context) {
                                         return AlertDialog(
-                                          backgroundColor: Theme.of(context)
-                                              .scaffoldBackgroundColor,
-                                          actionsAlignment:
-                                              MainAxisAlignment.center,
+                                          actionsAlignment: MainAxisAlignment.center,
                                           actions: [
                                             TextButton(
                                                 onPressed: () {
                                                   Navigator.of(context).pop();
                                                 },
                                                 child: Text(
-                                                  "abueno pa saber",
+                                                  "Entendido",
                                                   textAlign: TextAlign.center,
                                                   style: Theme.of(context)
                                                       .textTheme
                                                       .subtitle2,
                                                 ))
                                           ],
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                              side: BorderSide(
+                                                  color: Theme.of(context)
+                                                      .secondaryHeaderColor,
+                                                  width: 3,
+                                                  style: BorderStyle.solid)),
+                                          backgroundColor: Theme.of(context)
+                                              .scaffoldBackgroundColor,
                                           title: Text(
                                             "Actualmente no disponible",
                                             style: Theme.of(context)

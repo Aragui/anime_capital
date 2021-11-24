@@ -1,7 +1,8 @@
 import 'dart:ui';
 
-import 'package:anime_capital/pages/home_page_old.dart';
-import 'package:anime_capital/pages/providers_page.dart';
+// import 'package:anime_capital/pages/home_page_old.dart';
+// import 'package:anime_capital/pages/providers_page.dart';
+import 'package:anime_capital/pages/coming_serie.dart';
 import 'package:anime_capital/tools/shared_preference.dart';
 import 'package:anime_capital/widgets/tab_bar.dart';
 import 'package:flutter/material.dart';
@@ -34,8 +35,9 @@ class _MyAppState extends State<MyApp> {
       routes: {
         "/": (_) => TabBarPages(),
         // "/": (_) => ProvidersPage(),
-        "/last-emited": (_) => HomePage(),
-        "/webview": (_) => WebViewPage()
+        // "/last-emited": (_) => HomePage(),
+        "/webview": (_) => WebViewPage(),
+        "/coming-serie": (_) => ComingSeriePage()
       },
       // onGenerateRoute: (RouteSettings settings) {
       //   late Widget page;
@@ -60,7 +62,7 @@ class _MyAppState extends State<MyApp> {
           secondaryHeaderColor: Color(0xFF780119),
           scaffoldBackgroundColor: Color(0xFF020b28),
           iconTheme: IconThemeData(color: Colors.white),
-          appBarTheme: AppBarTheme(backgroundColor: Color(0xFF780119)),
+          appBarTheme: AppBarTheme(backgroundColor: Color(0xFF780119), iconTheme: IconThemeData(color: Color(0xFF780119))),
           textTheme: TextTheme(
               subtitle1: TextStyle(
                   color: Colors.white, letterSpacing: 1, fontSize: 17),
@@ -76,7 +78,8 @@ class _MyAppState extends State<MyApp> {
                 color: Colors.white,
                 letterSpacing: 1,
                 fontSize: 22
-              )),
+              ),
+              bodyText2: TextStyle(color: Colors.white, letterSpacing: 1, fontSize: 14)),
           fontFamily: 'Osaka-Sans Serif',
           tabBarTheme: TabBarTheme(
               indicator: BoxDecoration(

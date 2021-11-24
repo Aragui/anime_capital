@@ -2,6 +2,6 @@
 <!-- Modify this file to customize your launch splash screen -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- <solid android:color="@color/splash" /> -->
-    <solid android:color="@color/halloween" />
+    <solid android:color="@color/background" />
 
 </shape>

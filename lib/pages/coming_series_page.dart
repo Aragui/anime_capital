@@ -53,13 +53,18 @@ class _ComingSeriesPageState extends State<ComingSeriesPage> {
                     ? SliverGrid.count(
                         crossAxisCount: 1,
                         children: data!
-                            .map((e) => AnimeCard(
-                                  imageUrl: e["image_url"],
-                                  title: e["title"],
-                                  type: e["type"],
-                                  genre: (e["genres"].length > 0) ? e["genres"][0]["name"] : "unknown",
-                                  producer: (e["producers"].length >0)? e["producers"][0]["name"] : "unknown"
-                                ))
+                            .map((e) => GestureDetector(
+                              onTap: (){
+                                Navigator.of(context).pushNamed('/coming-serie', arguments: e);
+                              },
+                              child: AnimeCard(
+                                    imageUrl: e["image_url"],
+                                    title: e["title"],
+                                    type: e["type"],
+                                    genre: (e["genres"].length > 0) ? e["genres"][0]["name"] : "unknown",
+                                    producer: (e["producers"].length >0)? e["producers"][0]["name"] : "unknown"
+                                  ),
+                            ))
                             .toList(),
                       )
                     : SliverToBoxAdapter()
