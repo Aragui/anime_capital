@@ -31,6 +31,8 @@ dependencies:
   rxdart: ^0.27.2
   http: ^0.13.3
   cached_network_image: ^3.1.0
+  shared_preferences: ^2.0.7
+  webview_flutter: ^2.0.13
 
 dev_dependencies:
   flutter_test:
@@ -39,7 +41,7 @@ dev_dependencies:
 
 flutter_icons:
   android: "launcher_icon"
-  image_path: "assets/logos/anicap_logo_hw.png"
+  image_path: "assets/logos/anicap_logo_nv.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

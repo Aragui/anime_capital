@@ -2,5 +2,7 @@
 <resources>
     <color name="splash">#F0A9B5</color>
     <color name="halloween">#42275E</color>
+    <color name="christmas">#2E55AC</color>
+    <color name="background">#020b28</color>
 
 </resources>
