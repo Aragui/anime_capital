@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:flutter/services.dart';
 class WebViewPage extends StatefulWidget {
  
 
@@ -18,20 +17,14 @@ class WebViewPageState extends State<WebViewPage> {
   @override
   void initState() {
     super.initState();
-    // Enable hybrid composition.
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
-    // Future.delayed(Duration(seconds: 1)).then((value) => SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack, overlays: [SystemUiOverlay.bottom]));
+
   }
 
   @override
   void dispose() {
     
     super.dispose();
-    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
-    // SystemChrome.setEnabledSystemUIOverlays([
-    //   SystemUiOverlay.top, SystemUiOverlay.bottom
-    // ]);
-    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.);
   }
 
   @override

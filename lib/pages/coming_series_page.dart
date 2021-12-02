@@ -37,18 +37,6 @@ class _ComingSeriesPageState extends State<ComingSeriesPage> {
                         ),
                       )
                     : SliverToBoxAdapter(),
-                // (snapshot.hasData)
-                //     ? SliverPadding(
-                //         padding:
-                //             EdgeInsets.symmetric(vertical: size.height * 0.03),
-                //         sliver: SliverList(
-                //           delegate: SliverChildBuilderDelegate((context, idx) {
-                //             return Text(data![idx]["title"], style: TextStyle(color: Colors.white),);
-
-                //           }, childCount: data!.length),
-                //         ),
-                //       )
-                //     : SliverToBoxAdapter()
                 (snapshot.hasData)
                     ? SliverGrid.count(
                         crossAxisCount: 1,
